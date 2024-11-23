@@ -41,3 +41,31 @@ DELETE FROM AuthorsList
 WHERE author_id IN (10,11)
 
 ALTER TABLE AuthorsList DROP COLUMN tem
+
+
+ALTER TABLE courses RENAME TO Textbooks
+ALTER TABLE Textbooks ADD COLUMN material_id SERIAL
+ALTER TABLE Textbooks ADD CONSTRAINT pk_textbooks PRIMARY KEY(material_id)
+
+CREATE TABLE Courses(
+	CRN INTEGER PRIMARY KEY,
+	Coursename VARCHAR(255)
+)
+
+INSERT INTO Courses(CRN, Coursename)
+SELECT DISTINCT CRN, Coursename
+FROM Textbooks
+
+
+CREATE TABLE Course_textbooks(
+	CRN INTEGER,
+	ISBN BIGINT
+)
+
+INSERT INTO Course_textbooks(CRN, ISBN)
+SELECT DISTINCT CRN, ISBN
+FROM Textbooks
+
+
+
+
