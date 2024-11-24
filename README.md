@@ -1,9 +1,9 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/w1BdldVH)
-# INTRODUCTION
+# Introduction
 
 ### Assignment three required students to implement a code solution to normalization problem given in Assignment two. I made an effort to transfer into code as many aspects of my theoretical solution. Nevertheless, some adjustments were necessary to address technical constraints and ensure proper coding functionality. 
 
-## PREPARING DATA 
+## Preparing the data
 
 ## First of all, I created a table using the query tool in PgAdmin.  Certain columns had to be renamed to suit naming restrictions.  
 
@@ -62,7 +62,7 @@ ALTER TABLE unnormal ADD COLUMN material_id SERIAL;
 
 ### With these adjustments complete, the data was ready for the normalization process. 
 
-# FIRST NORMAL  
+# FIRST NORMAL FORM
 
 ### In my previous assignment, the “Authors” column was separated into a new entity which was  made atomic.  
 
@@ -127,7 +127,7 @@ DELETE FROM AuthorsList
 ```
  
 ### Lastly, I dropped the temporary column as it was no longer needed.
-# SECOND NORMAL 
+# SECOND NORMAL FORM
 
 ### In the second normal form,  I created a new entity called “Courses.”  
 
@@ -166,7 +166,7 @@ CREATE TABLE Course_Material(
 
     SELECT DISTINCT CRN, ISBN 
 ```
-# THIRD FORM 
+# THIRD NORMAL FORM 
 
 ### In the third normal form, I created a “Publishing House” table and populated it with values.  
 ```
@@ -216,6 +216,7 @@ CREATE TABLE Textbooks(
     FROM unnormal; 
 ```
  
+## Conclusion
 
 ### All of the above code was later encapsulated into a procedure called “assignment 3.” 
 ```
